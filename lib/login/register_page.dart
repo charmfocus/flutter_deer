@@ -64,7 +64,7 @@ class _RegisterState extends State<Register> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: MyAppBar(
+        appBar: const MyAppBar(
           title: "注册",
         ),
         body: defaultTargetPlatform == TargetPlatform.iOS ? FormKeyboardActions(
@@ -94,7 +94,7 @@ class _RegisterState extends State<Register> {
             keyboardType: TextInputType.phone,
             hintText: "请输入手机号",
           ),
-          Gaps.vGap10,
+          Gaps.vGap8,
           MyTextField(
             focusNode: _nodeText2,
             controller: _vCodeController,
@@ -112,7 +112,7 @@ class _RegisterState extends State<Register> {
             maxLength: 6,
             hintText: "请输入验证码",
           ),
-          Gaps.vGap10,
+          Gaps.vGap8,
           MyTextField(
             focusNode: _nodeText3,
             isInputPwd: true,

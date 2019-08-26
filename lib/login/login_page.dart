@@ -100,7 +100,7 @@ class _LoginState extends State<Login> {
             keyboardType: TextInputType.phone,
             hintText: "请输入账号",
           ),
-          Gaps.vGap10,
+          Gaps.vGap8,
           MyTextField(
             focusNode: _nodeText2,
             config: _config,
@@ -135,7 +135,7 @@ class _LoginState extends State<Login> {
                 child: const Text(
                   '还没账号？快去注册',
                   style: TextStyle(
-                      color: Colours.text_blue
+                      color: Colours.app_main
                   ),
                 ),
                 onTap: (){

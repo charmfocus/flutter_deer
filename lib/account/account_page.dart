@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
-import 'package:flutter_deer/util/utils.dart';
+import 'package:flutter_deer/util/image_utils.dart';
 import 'package:flutter_deer/widgets/app_bar.dart';
 import 'package:flutter_deer/widgets/click_item.dart';
 
@@ -17,7 +17,7 @@ class _AccountPageState extends State<AccountPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: MyAppBar(
+      appBar: const MyAppBar(
         centerTitle: "资金管理",
       ),
       body: Column(
@@ -31,7 +31,7 @@ class _AccountPageState extends State<AccountPage> {
                   margin: const EdgeInsets.symmetric(horizontal: 6.0),
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                      image: AssetImage(Utils.getImgPath("account/bg")),
+                      image: AssetImage(ImageUtils.getImgPath("account/bg")),
                       fit: BoxFit.fill
                     )
                   ),
@@ -40,7 +40,7 @@ class _AccountPageState extends State<AccountPage> {
                   top: 37.0,
                   child: Column(
                     children: <Widget>[
-                      const Text("当前余额(元)", style: TextStyle(color: Color(0xFFD4E2FA), fontSize: 12.0)),
+                      const Text("当前余额(元)", style: TextStyle(color: Colours.login_text_disabled, fontSize: 12.0)),
                       Gaps.vGap8,
                       Text("30.12", style: TextStyle(color: Colors.white, fontSize: 32.0, fontWeight: FontWeight.bold)),
                     ],
@@ -55,16 +55,16 @@ class _AccountPageState extends State<AccountPage> {
                     children: <Widget>[
                       Column(
                         children: <Widget>[
-                          const Text("累计结算金额", style: TextStyle(color: Color(0xFFD4E2FA), fontSize: 12.0)),
+                          const Text("累计结算金额", style: TextStyle(color: Colours.login_text_disabled, fontSize: 12.0)),
                           Gaps.vGap8,
-                          Text("20000.00", style: TextStyle(color: Color(0xFFD4E2FA), fontSize: 14.0)),
+                          Text("20000.00", style: TextStyle(color: Colours.login_text_disabled, fontSize: 14.0)),
                         ],
                       ),
                       Column(
                         children: <Widget>[
-                          const Text("累计发放佣金", style: TextStyle(color: Color(0xFFD4E2FA), fontSize: 12.0)),
+                          const Text("累计发放佣金", style: TextStyle(color: Colours.login_text_disabled, fontSize: 12.0)),
                           Gaps.vGap8,
-                          Text("0.02", style: TextStyle(color: Color(0xFFD4E2FA), fontSize: 14.0)),
+                          Text("0.02", style: TextStyle(color: Colours.login_text_disabled, fontSize: 14.0)),
                         ],
                       ),
                     ],

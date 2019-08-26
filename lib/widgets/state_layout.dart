@@ -1,7 +1,7 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_deer/res/resources.dart';
-import 'package:flutter_deer/util/utils.dart';
+import 'package:flutter_deer/util/image_utils.dart';
 
 class StateLayout extends StatefulWidget {
   
@@ -61,14 +61,14 @@ class _StateLayoutState extends State<StateLayout> {
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          widget.type == StateType.loading ? CupertinoActivityIndicator(radius: 16.0) :
+          widget.type == StateType.loading ? const CupertinoActivityIndicator(radius: 16.0) :
           (widget.type == StateType.empty ? Gaps.empty :
           Container(
             height: 120.0,
             width: 120.0,
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage(Utils.getImgPath("state/$_img")),
+                image: AssetImage(ImageUtils.getImgPath("state/$_img")),
               ),
             ),
           )),

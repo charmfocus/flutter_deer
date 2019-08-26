@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
-import 'package:flutter_deer/util/image_utils.dart';
+import 'package:flutter_deer/widgets/load_image.dart';
 import 'package:flutter_deer/widgets/menu_reveal.dart';
 
 
@@ -47,7 +47,7 @@ class GoodsItem extends StatelessWidget {
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  loadNetworkImage(img, width: 72.0, height: 72.0),
+                  LoadImage(img, width: 72.0, height: 72.0),
                   Gaps.hGap8,
                   Expanded(
                     child: Column(
@@ -89,7 +89,7 @@ class GoodsItem extends StatelessWidget {
                               child: Container(
                                 padding: const EdgeInsets.symmetric(horizontal: 4.0),
                                 decoration: BoxDecoration(
-                                  color: Color(0xFF4688FA),
+                                  color: Colours.app_main,
                                   borderRadius: BorderRadius.circular(2.0),
                                 ),
                                 height: 16.0,
@@ -121,7 +121,7 @@ class GoodsItem extends StatelessWidget {
                             width: 24.0,
                             height: 24.0,
                             padding: const EdgeInsets.only(left: 8.0, bottom: 8.0),
-                            child: loadAssetImage("goods/ellipsis")
+                            child: const LoadAssetImage("goods/ellipsis")
                         ),
                         onTap: onTapMenu,
                       ),

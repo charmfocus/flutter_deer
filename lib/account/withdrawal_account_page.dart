@@ -2,8 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
-import 'package:flutter_deer/util/image_utils.dart';
 import 'package:flutter_deer/widgets/app_bar.dart';
+import 'package:flutter_deer/widgets/load_image.dart';
 import 'package:flutter_deer/widgets/state_layout.dart';
 
 import 'account_router.dart';
@@ -37,7 +37,7 @@ class _WithdrawalAccountPageState extends State<WithdrawalAccountPage> {
           NavigatorUtils.push(context, AccountRouter.addWithdrawalAccountPage);
         }
       ),
-      body: _list.isEmpty ? StateLayout(
+      body: _list.isEmpty ? const StateLayout(
         type: StateType.account) : 
       ListView.builder(
         padding: const EdgeInsets.symmetric(horizontal: 22.0),
@@ -67,7 +67,7 @@ class _WithdrawalAccountPageState extends State<WithdrawalAccountPage> {
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(20.0),
                           ),
-                          child: loadAssetImage(_list[index].type == 1 ? "account/wechat" : "account/yhk")
+                          child: LoadAssetImage(_list[index].type == 1 ? "account/wechat" : "account/yhk")
                         ),
                       ),
                       Positioned(
@@ -177,7 +177,7 @@ class _AccountCardState extends State<AccountCard> {
           BoxShadow(color: widget.type == 1 ? Color(0x804EE07A) : Color(0x805793FA), offset: Offset(0.0, 2.0), blurRadius: 8.0, spreadRadius: 0.0),
         ],
         gradient: LinearGradient(
-          colors: widget.type == 1 ? [Color(0xFF40E6AE), Color(0xFF2DE062)] : [Color(0xFF57C4FA), Color(0xFF4688FA)]
+          colors: widget.type == 1 ? [Color(0xFF40E6AE), Color(0xFF2DE062)] : [Color(0xFF57C4FA), Colours.app_main]
         )
       ),
       child: widget.child,

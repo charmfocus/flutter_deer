@@ -3,7 +3,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_deer/res/resources.dart';
-import 'package:flutter_deer/util/image_utils.dart';
+
+import 'load_image.dart';
 
 class SearchBar extends StatefulWidget implements PreferredSizeWidget{
 
@@ -75,22 +76,23 @@ class _SearchBarState extends State<SearchBar> {
                       borderRadius: BorderRadius.circular(4.0),
                     ),
                     child: TextField(
-                      autofocus: false,
+                      style: TextStyles.textDark14,
+                      autofocus: true,
                       controller: _controller,
                       maxLines: 1,
                       decoration: InputDecoration(
-                        contentPadding: const EdgeInsets.only(top: 6.0, left: -8.0, right: -16.0),
+                        contentPadding: const EdgeInsets.only(top: 6.0, left: -8.0, right: -16.0, bottom: 6.0),
                         border: InputBorder.none,
                         icon: Padding(
                           padding: const EdgeInsets.only(top: 8.0, bottom: 8.0, left: 8.0),
-                          child: loadAssetImage("order/order_search"),
+                          child: const LoadAssetImage("order/order_search"),
                         ),
                         hintText: widget.hintText,
                         hintStyle: TextStyles.textGrayC14,
                         suffixIcon: InkWell(
                           child: Padding(
                             padding: const EdgeInsets.only(left: 16.0, top: 8.0, bottom: 8.0),
-                            child: loadAssetImage("order/order_delete"),
+                            child: const LoadAssetImage("order/order_delete"),
                           ),
                           onTap: (){
                             _controller.text = "";
@@ -100,23 +102,29 @@ class _SearchBarState extends State<SearchBar> {
                     ),
                   ),
                 ),
-                Container(
-                  margin: const EdgeInsets.only(left: 8.0, right: 16.0),
-                  height: 32.0,
-                  width: 44.0,
-                  child: FlatButton(
-                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                    color: Colours.app_main,
-                    textColor: Colors.white,
-                    onPressed:(){
-                      widget.onPressed(_controller.text);
-                    },
-                    child: Text("搜索", style: TextStyle(fontSize: 14.0)),
-                    shape:RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(4.0),
-                    )
+                Gaps.hGap8,
+                Theme(
+                  data: Theme.of(context).copyWith(
+                    buttonTheme: ButtonThemeData(
+                        padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                        height: 32.0,
+                        minWidth: 44.0,
+                        materialTapTargetSize: MaterialTapTargetSize.shrinkWrap, // 距顶部距离为0
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(4.0),
+                        )
+                    ),
                   ),
-                )
+                  child: FlatButton(
+                      color: Colours.app_main,
+                      textColor: Colors.white,
+                      onPressed:(){
+                        widget.onPressed(_controller.text);
+                      },
+                      child: Text("搜索", style: TextStyle(fontSize: 14.0)),
+                  ),
+                ),
+                Gaps.hGap16,
               ],
             )
           ),

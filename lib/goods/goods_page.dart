@@ -2,8 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
-import 'package:flutter_deer/util/image_utils.dart';
 import 'package:flutter_deer/util/toast.dart';
+import 'package:flutter_deer/widgets/load_image.dart';
 import 'package:flutter_deer/widgets/popup_window.dart';
 
 import 'goods_list.dart';
@@ -52,7 +52,7 @@ class _GoodsState extends State<Goods> with SingleTickerProviderStateMixin, Auto
             onPressed: (){
               NavigatorUtils.push(context, GoodsRouter.goodsSearchPage);
             },
-            icon: loadAssetImage(
+            icon: const LoadAssetImage(
               "goods/search",
               width: 24.0,
               height: 24.0,
@@ -63,7 +63,7 @@ class _GoodsState extends State<Goods> with SingleTickerProviderStateMixin, Auto
             onPressed: (){
               _showAddMenu();
             },
-            icon: loadAssetImage(
+            icon: const LoadAssetImage(
               "goods/add",
               width: 24.0,
               height: 24.0,
@@ -87,7 +87,7 @@ class _GoodsState extends State<Goods> with SingleTickerProviderStateMixin, Auto
                     style: TextStyles.textBoldDark24,
                   ),
                 ),
-                loadAssetImage("goods/expand", width: 16.0, height: 16.0)
+                const LoadAssetImage("goods/expand", width: 16.0, height: 16.0)
               ],
             ),
             onTap: (){
@@ -114,51 +114,9 @@ class _GoodsState extends State<Goods> with SingleTickerProviderStateMixin, Auto
               labelColor: Colours.app_main,
               indicatorPadding: const EdgeInsets.only(left: 12.0, right: 36.0),
               tabs: <Widget>[
-                Tab(
-                  child: Container(
-                    width: 78.0,
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Text("在售"),
-                        Offstage(offstage: _index != 0, child: Padding(
-                          padding: const EdgeInsets.only(top: 1.0),
-                          child: Text(" (3件)", style: TextStyle(fontSize: Dimens.font_sp12)),
-                        )),
-                      ],
-                    ),
-                  )
-                ),
-                Tab(
-                    child: Container(
-                      width: 78.0,
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          Text("待售"),
-                          Offstage(offstage: _index != 1, child: Padding(
-                            padding: const EdgeInsets.only(top: 1.0),
-                            child: Text(" (15件)", style: TextStyle(fontSize: Dimens.font_sp12)),
-                          )),
-                        ],
-                      ),
-                    )
-                ),
-                Tab(
-                    child: Container(
-                      width: 78.0,
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          Text("下架"),
-                          Offstage(offstage: _index != 2, child: Padding(
-                            padding: const EdgeInsets.only(top: 1.0),
-                            child: Text(" (26件)", style: TextStyle(fontSize: Dimens.font_sp12)),
-                          )),
-                        ],
-                      ),
-                    )
-                ),
+                _TabView("在售", " (3件)", 0, _index),
+                _TabView("待售", " (15件)", 1, _index),
+                _TabView("下架", " (26件)", 2, _index),
               ],
             ),
           ),
@@ -287,7 +245,7 @@ class _GoodsState extends State<Goods> with SingleTickerProviderStateMixin, Auto
           children: <Widget>[
             Padding(
               padding: const EdgeInsets.only(right: 12.0),
-              child: loadAssetImage("goods/jt", width: 8.0, height: 4.0,),
+              child: const LoadAssetImage("goods/jt", width: 8.0, height: 4.0,),
             ),
             Container(
               width: 120.0,
@@ -300,7 +258,7 @@ class _GoodsState extends State<Goods> with SingleTickerProviderStateMixin, Auto
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.only(topLeft: Radius.circular(8.0), topRight: Radius.circular(8.0)),
                 ),  
-                icon: loadAssetImage("goods/scanning", width: 16.0, height: 16.0,), 
+                icon: const LoadAssetImage("goods/scanning", width: 16.0, height: 16.0,), 
                 label: const Text("扫码添加", style: TextStyles.textDark14,)
               ),
             ),
@@ -316,7 +274,7 @@ class _GoodsState extends State<Goods> with SingleTickerProviderStateMixin, Auto
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.only(bottomLeft: Radius.circular(8.0), bottomRight: Radius.circular(8.0)),
                 ),
-                icon: loadAssetImage("goods/add2", width: 16.0, height: 16.0,),
+                icon: const LoadAssetImage("goods/add2", width: 16.0, height: 16.0,),
                 label: const Text("添加商品", style: TextStyles.textDark14)
               ),
             ),
@@ -328,4 +286,33 @@ class _GoodsState extends State<Goods> with SingleTickerProviderStateMixin, Auto
 
   @override
   bool get wantKeepAlive => true;
+}
+
+class _TabView extends StatelessWidget {
+  
+  const _TabView(this.tabName, this.tabSub, this.index, this.selectIndex);
+  
+  final String tabName;
+  final String tabSub;
+  final int index;
+  final int selectIndex;
+  
+  @override
+  Widget build(BuildContext context) {
+    return Tab(
+        child: Container(
+          width: 78.0,
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Text(tabName),
+              Offstage(offstage: selectIndex != index, child: Padding(
+                padding: const EdgeInsets.only(top: 1.0),
+                child: Text(tabSub, style: TextStyle(fontSize: Dimens.font_sp12)),
+              )),
+            ],
+          ),
+        )
+    );
+  }
 }
