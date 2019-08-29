@@ -2,11 +2,11 @@
 import 'package:flutter_deer/mvp/base_page_presenter.dart';
 import 'package:flutter_deer/net/net.dart';
 import 'package:flutter_deer/order/models/search_entity.dart';
+import 'package:flutter_deer/order/page/order_search_page.dart';
 import 'package:flutter_deer/widgets/state_layout.dart';
 
-import '../order_search_page.dart';
 
-class OrderSearchPresenter extends BasePagePresenter<OrderSearchState> {
+class OrderSearchPresenter extends BasePagePresenter<OrderSearchPageState> {
 
   Future search(String text, int page, bool isShowDialog) async{
    

@@ -2,11 +2,11 @@
 import 'package:fluro/fluro.dart';
 import 'package:flutter_deer/routers/router_init.dart';
 
-import 'freight_config_page.dart';
-import 'message_page.dart';
-import 'select_address_page.dart';
-import 'shop_page.dart';
-import 'shop_setting_page.dart';
+import 'page/freight_config_page.dart';
+import 'page/message_page.dart';
+import 'page/select_address_page.dart';
+import 'page/shop_page.dart';
+import 'page/shop_setting_page.dart';
 
 class ShopRouter implements IRouterProvider{
 
@@ -18,7 +18,7 @@ class ShopRouter implements IRouterProvider{
   
   @override
   void initRouter(Router router) {
-    router.define(shopPage, handler: Handler(handlerFunc: (_, params) => Shop()));
+    router.define(shopPage, handler: Handler(handlerFunc: (_, params) => ShopPage()));
     router.define(shopSettingPage, handler: Handler(handlerFunc: (_, params) => ShopSettingPage()));
     router.define(messagePage, handler: Handler(handlerFunc: (_, params) => MessagePage()));
     router.define(freightConfigPage, handler: Handler(handlerFunc: (_, params) => FreightConfigPage()));
