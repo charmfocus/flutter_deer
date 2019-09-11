@@ -12,6 +12,8 @@ import 'package:flutter_deer/widgets/selected_text.dart';
 import 'package:flutter_deer/widgets/bezier_chart/bezier_chart.dart';
 import 'package:date_utils/date_utils.dart' as Date;
 
+/// design/5统计/index.html#artboard1
+/// design/5统计/index.html#artboard6
 class OrderStatisticsPage extends StatefulWidget {
 
   const OrderStatisticsPage(this.index, {Key key}) : super(key: key);
@@ -152,7 +154,7 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> {
           padding: const EdgeInsets.all(16.0),
           decoration: BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage(ImageUtils.getImgPath("statistic/chart_fg")),
+                  image: ImageUtils.getAssetImage("statistic/chart_fg"),
                   fit: BoxFit.fill
               )
           ),
@@ -242,8 +244,7 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> {
   List<Widget> _buildWeeks(){
     List<Widget> widgets = [];
     _weeks.forEach((str){
-      widgets.add(Container(
-        alignment: Alignment.center,
+      widgets.add(Center(
         child: Text(str, style: TextStyles.textGray12),
       ));
     });
@@ -261,8 +262,7 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> {
     dayWidgets.addAll(_buildWeeks());
     list.forEach((day) {
       dayWidgets.add(
-          Container(
-            alignment: Alignment.center,
+          Center(
             child: SelectedText(
               day.day < 10 ? "0${day.day}" : day.day.toString(),
               selected:(day.day == _selectedDay.day && !DateUtils.isExtraDay(day, _initialDay)),
@@ -284,8 +284,7 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> {
     List<Widget> monthWidgets = [];
     _monthList.forEach((month){
       monthWidgets.add(
-        Container(
-          alignment: Alignment.center,
+          Center(
             child: SelectedText(
               "$month月",
               selected: month == _selectedMonth,
@@ -306,18 +305,17 @@ class _OrderStatisticsPageState extends State<OrderStatisticsPage> {
     List<Widget> dayWidgets = [];
     _weeksDays.forEach((day) {
       dayWidgets.add(
-        Container(
-          alignment: Alignment.center,
-          child: SelectedText(
-            day.day < 10 ? "0${day.day}" : day.day.toString(),
-            selected: day.day == _selectedWeekDay,
-            onTap: (){
-              setState(() {
-                _selectedWeekDay = day.day;
-              });
-            },
-          ),
-        )
+          Center(
+            child: SelectedText(
+              day.day < 10 ? "0${day.day}" : day.day.toString(),
+              selected: day.day == _selectedWeekDay,
+              onTap: (){
+                setState(() {
+                  _selectedWeekDay = day.day;
+                });
+              },
+            ),
+          )
       );       
     });
     return dayWidgets;

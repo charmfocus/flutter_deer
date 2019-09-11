@@ -5,6 +5,7 @@ import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/util/toast.dart';
 import 'package:flutter_deer/widgets/load_image.dart';
 
+/// design/6店铺-账户/index.html#artboard13
 class WithdrawalPasswordSettingDialog extends StatefulWidget {
   @override
   _WithdrawalPasswordSettingDialogState createState() => _WithdrawalPasswordSettingDialogState();
@@ -48,7 +49,7 @@ class _WithdrawalPasswordSettingDialogState extends State<WithdrawalPasswordSett
                           onTap: (){
                             NavigatorUtils.goBack(context);
                           },
-                          child: Container(
+                          child: const SizedBox(
                             height: 16.0,
                             width: 16.0,
                             child: const LoadAssetImage("goods/icon_dialog_close")

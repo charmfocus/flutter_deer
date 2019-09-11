@@ -9,6 +9,8 @@ import 'package:flutter_deer/widgets/load_image.dart';
 
 import '../order_router.dart';
 
+
+/// design/3订单/index.html#artboard10
 class OrderInfoPage extends StatefulWidget {
   @override
   _OrderInfoPageState createState() => _OrderInfoPageState();
@@ -61,10 +63,10 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
                               ],
                             ),
                           ),
-                          Container(
+                          const SizedBox(
                             width: 1.0,
                             height: 24.0,
-                            color: Colours.order_line,
+                            child: const DecoratedBox(decoration: BoxDecoration(color: Colours.order_line)),
                           ),
                           Gaps.hGap16,
                           InkWell(
@@ -138,10 +140,7 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
                                               alignment: Alignment.center,
                                               child: Text(
                                                 "立减2.50元",
-                                                style: TextStyle(
-                                                    color: Colors.white,
-                                                    fontSize: Dimens.font_sp10
-                                                ),
+                                                style: const TextStyle(color: Colors.white, fontSize: Dimens.font_sp10,),
                                               ),
                                             ),
                                             Gaps.hGap4,
@@ -157,10 +156,7 @@ class _OrderInfoPageState extends State<OrderInfoPage> {
                                                 alignment: Alignment.center,
                                                 child: Text(
                                                   "抵扣2.50元",
-                                                  style: TextStyle(
-                                                      color: Colors.white,
-                                                      fontSize: Dimens.font_sp10
-                                                  ),
+                                                  style: const TextStyle(color: Colors.white, fontSize: Dimens.font_sp10),
                                                 ),
                                               ),
                                             )

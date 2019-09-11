@@ -9,6 +9,7 @@ import 'package:flutter_deer/widgets/state_layout.dart';
 
 import '../account_router.dart';
 
+/// design/6店铺-账户/index.html#artboard26
 class WithdrawalAccountPage extends StatefulWidget {
   @override
   _WithdrawalAccountPageState createState() => _WithdrawalAccountPageState();
@@ -53,7 +54,7 @@ class _WithdrawalAccountPageState extends State<WithdrawalAccountPage> {
                 onLongPress: (){
                   _showDeleteBottomSheet(index);
                 },
-                child: Container(
+                child: SizedBox(
                   child: Stack(
                     children: <Widget>[
                       Positioned(
@@ -107,12 +108,13 @@ class _WithdrawalAccountPageState extends State<WithdrawalAccountPage> {
                 height: 161.2,
                 child: Column(
                   children: <Widget>[
-                    Container(
-                      alignment: Alignment.center,
+                    const SizedBox(
                       height: 52.0,
-                      child: const Text(
-                        "是否确认解绑，防止错误操作",
-                        style: TextStyles.textGray16,
+                      child: const Center(
+                        child: const Text(
+                          "是否确认解绑，防止错误操作",
+                          style: TextStyles.textGray16,
+                        ),
                       ),
                     ),
                     Gaps.line,

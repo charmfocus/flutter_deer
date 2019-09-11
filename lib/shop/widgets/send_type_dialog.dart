@@ -5,6 +5,8 @@ import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/widgets/base_dialog.dart';
 import 'package:flutter_deer/widgets/load_image.dart';
 
+
+/// design/7店铺-店铺配置/index.html#artboard9
 class SendTypeDialog extends StatefulWidget{
 
   SendTypeDialog({
@@ -28,7 +30,7 @@ class _SendTypeDialog extends State<SendTypeDialog>{
     return Material(
       type: MaterialType.transparency,
       child: InkWell(
-        child: Container(
+        child: SizedBox(
           height: 42.0,
           child: Row(
             children: <Widget>[

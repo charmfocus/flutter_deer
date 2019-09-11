@@ -6,6 +6,8 @@ import 'package:flutter_deer/util/toast.dart';
 import 'package:flutter_deer/widgets/base_dialog.dart';
 import 'package:flutter_deer/widgets/load_image.dart';
 
+
+/// design/7店铺-店铺配置/index.html#artboard10
 class PayTypeDialog extends StatefulWidget{
 
   PayTypeDialog({
@@ -32,7 +34,7 @@ class _PayTypeDialog extends State<PayTypeDialog>{
     return Material(
       type: MaterialType.transparency,
       child: InkWell(
-        child: Container(
+        child: SizedBox(
           height: 42.0,
           child: Row(
             children: <Widget>[

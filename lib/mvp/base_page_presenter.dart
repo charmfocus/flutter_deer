@@ -95,13 +95,13 @@ class BasePagePresenter<V extends IMvpView> extends IPresenter {
     String imgPath = "";
     try{
       String path = image.path;
-      var name = path.substring(path.lastIndexOf("/") + 1, path.length);
-      var suffix = name.substring(name.lastIndexOf(".") + 1, name.length);
+      var name = path.substring(path.lastIndexOf("/") + 1);
+      var suffix = name.substring(name.lastIndexOf(".") + 1);
       FormData formData = FormData.from({
         "uploadIcon": UploadFileInfo(File(path), name, contentType: ContentType.parse("image/$suffix"))
       });
       await requestNetwork<String>(Method.post,
-          url: Api.upload,
+          url: HttpApi.upload,
           params: formData,
           onSuccess: (data){
             imgPath = data;

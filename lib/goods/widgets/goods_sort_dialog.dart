@@ -7,6 +7,8 @@ import 'package:flutter_deer/res/resources.dart';
 import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/widgets/load_image.dart';
 
+
+/// design/4商品/index.html#artboard20
 class GoodsSortDialog extends StatefulWidget {
 
   const GoodsSortDialog({
@@ -70,7 +72,7 @@ class _GoodsSortDialogState extends State<GoodsSortDialog> with SingleTickerProv
   Widget build(BuildContext context) {
     return Material(
       color: Colors.white,
-      child: Container(
+      child: SizedBox(
         height: MediaQuery.of(context).size.height * 11.0 / 16.0,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -81,7 +83,7 @@ class _GoodsSortDialogState extends State<GoodsSortDialog> with SingleTickerProv
                   width: double.infinity,
                   alignment: Alignment.center,
                   padding: const EdgeInsets.symmetric(vertical: 16.0),
-                  child: Text(
+                  child: const Text(
                     "商品分类",
                     style: TextStyles.textBoldDark16,
                   ),
@@ -91,7 +93,7 @@ class _GoodsSortDialogState extends State<GoodsSortDialog> with SingleTickerProv
                     onTap: (){
                       NavigatorUtils.goBack(context);
                     },
-                    child: Container(
+                    child: const SizedBox(
                       height: 16.0,
                       width: 16.0,
                       child: const LoadAssetImage("goods/icon_dialog_close")

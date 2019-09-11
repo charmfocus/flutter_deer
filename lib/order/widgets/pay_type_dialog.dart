@@ -5,6 +5,7 @@ import 'package:flutter_deer/routers/fluro_navigator.dart';
 import 'package:flutter_deer/widgets/base_dialog.dart';
 import 'package:flutter_deer/widgets/load_image.dart';
 
+/// design/3订单/index.html#artboard5
 class PayTypeDialog extends StatefulWidget{
 
   PayTypeDialog({
@@ -28,7 +29,7 @@ class _PayTypeDialog extends State<PayTypeDialog>{
     return Material(
       type: MaterialType.transparency,
       child: InkWell(
-        child: Container(
+        child: SizedBox(
           height: 42.0,
           child: Row(
             children: <Widget>[
